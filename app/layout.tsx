@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
+import "./styles.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Hanken_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
