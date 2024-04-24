@@ -7,7 +7,7 @@ const inter = Hanken_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Currency Exchange",
-  description: "Crafted with love -- by Dhruvik Neharia -- for Clepher",
+  description: "Crafted with love -- by Dhruvik Neharia",
 };
 
 // Inspirations

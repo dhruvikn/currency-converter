@@ -84,12 +84,7 @@ export default function Home() {
           Crafted with love -- by{' '}
           <Link target="_blank" href="https://linktr.ee/dhruvikn">
             Dhruvik Neharia
-          </Link>{' '}
-          -- for{' '}
-          <Link target="_blank" href="https://clepher.com/">
-            Clepher
           </Link>
-          .
         </h2>
 
         <div className="currency-card--container flex-col md:flex-row items-center">
