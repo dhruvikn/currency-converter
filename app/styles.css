@@ -1,18 +1,48 @@
+.container {
+  max-width: 900px;
+}
+
 .page-title {
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: var(--font-weight-bold);
+  color: rgb(var(--color-secondary));
+  text-shadow: 4px 4px 0 rgb(var(--color-secondary), 0.25);
   line-height: 1;
+  margin-bottom: 1rem;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: rgb(var(--color-secondary), 0.75);
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.page-subtitle a {
+  text-decoration: underline;
+  font-weight: var(--font-weight-bold);
+}
+
+.currency-card--container {
+  display: flex;
+  width: 100%;
+  background-color: rgb(var(--color-dark-1), 0.5);
+  position: relative;
+  z-index: 1;
 }
 
 .currency-card--body {
-  background-color: rgb(var(--color-dark-1));
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  width: 100%;
 }
 
 .currency-card--input--container {
   display: flex;
+  position: relative;
 }
 
 .currency-card--input {
@@ -22,7 +52,7 @@
   border-radius: 4px;
   height: 3.5rem;
   outline: none;
-  width: 300px;
+  width: calc(100% + 5rem);
 }
 
 .currency-card--input:focus {
@@ -32,8 +62,10 @@
 .currency-card--dropdown--container {
   display: flex;
   flex-direction: column;
-  position: relative;
-  transform: translateX(-6rem) translateY(0.75rem);
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
   width: 5rem;
   height: 2rem;
 }
@@ -63,4 +95,45 @@
 
 .currency-card--dropdown--select:focus {
   outline: 2px solid rgb(var(--color-primary), 0.75);
+}
+
+.currency-card--label {
+  margin-bottom: 8px;
+}
+
+.toggle-currency {
+  cursor: pointer;
+  background-color: rgb(var(--color-primary));
+  border: 0;
+  border-radius: 100%;
+  min-height: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s ease-out;
+}
+
+.toggle-currency svg {
+  fill: rgb(var(--color-fg));
+  width: 1rem;
+  height: 1rem;
+  transition: 0.25s ease-out;
+}
+
+.toggle-currency:hover {
+  box-shadow: 0 0 0 0.5rem rgba(var(--color-primary), 0.25);
+}
+
+.toggle-currency.is-active {
+  outline: 2px solid rgb(var(--color-primary), 0.75);
+  transform: rotate(360deg) scale(1.2);
+}
+
+.currency-card--note {
+  font-size: 0.8rem;
+  color: rgb(var(--color-fg), 0.75);
+  margin-top: 0.5rem;
 }

@@ -1,26 +1,31 @@
 import axios from 'axios';
 import type { CurrencySymbols } from './constants';
 
-export type CurrencyExchangeData = Record<string, string>;
-
-const API_KEY = 'RIBXT3XYLI69PC0Q';
+export type CurrencyExchangeResponse = {
+  [key in CurrencySymbols]: number;
+} & {
+  date: string;
+  baseCurrency: CurrencySymbols;
+};
 
 export const fetchExchangeRate = async (
-  fromCurrency: CurrencySymbols,
-  toCurrency: CurrencySymbols
-) => {
-  if (!fromCurrency.length || !toCurrency.length) {
+  fromCurrencySymbol: CurrencySymbols
+): Promise<CurrencyExchangeResponse | Error> => {
+  if (!fromCurrencySymbol?.length) {
     return new Error('Invalid currency');
   }
 
-  const CURRENCY_EXCHANGE_URL = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${fromCurrency}&to_currency=${toCurrency}&apikey=${API_KEY}`;
+  const CURRENCY_EXCHANGE_URL = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrencySymbol}.json`;
 
   try {
     const response = await axios.get(CURRENCY_EXCHANGE_URL);
-    const data: CurrencyExchangeData = response?.data;
+    const data: CurrencyExchangeResponse = response?.data?.[fromCurrencySymbol];
+
+    data.baseCurrency = fromCurrencySymbol;
 
     return data;
   } catch (error) {
     console.error(error);
+    return new Error('Failed to fetch exchange rate');
   }
 };
