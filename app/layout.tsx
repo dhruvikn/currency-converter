@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { Hanken_Grotesk } from "next/font/google";
-import "./globals.css";
-import "./styles.css";
+import type { Metadata } from 'next';
+import { Hanken_Grotesk } from 'next/font/google';
+import './globals.css';
+import './styles.css';
 
-const inter = Hanken_Grotesk({ subsets: ["latin"] });
+const inter = Hanken_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Currency Exchange",
-  description: "Crafted with love -- by Dhruvik Neharia",
+  title: 'Currency Exchange',
+  description: 'Crafted with love -- by Dhruvik Neharia'
 };
 
 // Inspirations
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 // https://dribbble.com/shots/18393355-CCE-Crypto-Currency-Exchanger
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

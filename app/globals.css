@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: 17, 19, 21;
-  --color-fg: 252, 252, 252;
-  --color-dark-1: 27, 29, 31;
-  --color-dark-2: 39, 43, 48;
-  --color-primary: 11, 103, 233;
-  --color-secondary: 185, 128, 218;
-  --color-positive: 50, 174, 96;
-  --color-negative: 240, 76, 26;
+  --color-bg: 17, 19, 21; /* #111315 */
+  --color-fg: 252, 252, 252; /* #fcfcfc */
+  --color-dark-1: 27, 29, 31; /* #1b1d1f */
+  --color-dark-2: 39, 43, 48; /* #272b30 */
+  --color-primary: 185, 128, 218; /* #b980da */
+  --color-secondary: 187, 37, 100; /* #bb2564 */
+  --color-positive: 50, 174, 96; /* #32ae60 */
+  --color-negative: 240, 76, 26; /* #f04c1a */
 
   --font-weight-light: 100;
   --font-weight-normal: 400;
@@ -18,15 +18,125 @@
 }
 
 body {
-  background-color: rgb(var(--color-bg));
+  background-color: rgb(var(--color-dark-1));
   color: rgb(var(--color-fg));
 }
 
 * {
   outline: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 *:focus {
-  outline: 2px solid rgb(var(--color-secondary), 0.75);
+  outline: 2px solid rgb(var(--color-primary), 0.75);
   border-radius: 4px;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  margin: auto;
+  width: 100vw;
+  z-index: -1;
+}
+
+.line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 0px;
+  background: rgb(var(--color-dark-1));
+  overflow: hidden;
+}
+
+.line::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  top: -50%;
+  left: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--color-dark-2), 0%),
+    rgb(var(--color-primary), 75%),
+    rgb(var(--color-primary), 100%)
+  );
+  -webkit-animation: drop var(--animationDuration) 0s infinite;
+  animation: drop var(--animationDuration) 0s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  -webkit-animation-delay: var(--animationDelay);
+  animation-delay: var(--animationDelay);
+}
+
+@-webkit-keyframes drop {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+@keyframes drop {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+.home-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.home-hero-bg:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  opacity: 1;
+  will-change: background, opacity;
+  transition-duration: 400ms;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: opacity;
+  background-image: radial-gradient(
+    500px at var(--cursor-x) var(--cursor-y),
+    rgba(var(--color-primary), 0.4),
+    transparent 40%
+  );
+  background-size: auto;
+  background-origin: padding-box;
+  z-index: 1;
+}
+
+.home-hero-bg-tiles {
+  z-index: 1;
+  background-image: url('data:image/svg+xml,<svg width="142" height="71" viewBox="0 0 142 71" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_1355_7537)"><rect x="0.5" y="0.5" width="70" height="70" fill="%23111315"/><rect x="71.5" y="0.5" width="70" height="70" fill="%23111315"/></g><defs><clipPath id="clip0_1355_7537"><rect width="142" height="71" fill="white"/></clipPath></defs></svg>');
+  background-repeat: repeat;
+  background-size: 100px;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
 }

@@ -5,8 +5,8 @@
 .page-title {
   font-size: 4rem;
   font-weight: var(--font-weight-bold);
-  color: rgb(var(--color-secondary));
-  text-shadow: 4px 4px 0 rgb(var(--color-secondary), 0.25);
+  color: rgb(var(--color-primary));
+  text-shadow: 4px 4px 0 rgb(var(--color-primary), 0.25);
   line-height: 1;
   margin-bottom: 1rem;
   text-align: center;
@@ -15,7 +15,7 @@
 
 .page-subtitle {
   font-size: 1.25rem;
-  color: rgb(var(--color-secondary), 0.75);
+  color: rgb(var(--color-secondary));
   margin-bottom: 4rem;
   text-align: center;
 }
@@ -27,16 +27,27 @@
 
 .currency-card--container {
   display: flex;
+  gap: 1rem;
+  padding: 2rem;
   width: 100%;
-  background-color: rgb(var(--color-dark-1), 0.5);
+  border-radius: 8px;
   position: relative;
   z-index: 1;
+  background-color: rgb(var(--color-dark-1), 0.75);
+  box-shadow: 0px 0px 20px rgb(var(--color-dark-1), 0.25);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .currency-card--container {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(var(--color-dark-1), 0.15);
+  }
 }
 
 .currency-card--body {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   width: 100%;
 }
 
@@ -97,7 +108,7 @@
 
 .toggle-currency {
   cursor: pointer;
-  background-color: rgb(var(--color-primary));
+  background-color: rgb(var(--color-secondary));
   border: 0;
   border-radius: 100%;
   min-height: 3rem;
@@ -118,11 +129,11 @@
 }
 
 .toggle-currency:hover {
-  box-shadow: 0 0 0 0.5rem rgba(var(--color-primary), 0.25);
+  box-shadow: 0 0 0 0.5rem rgba(var(--color-secondary), 0.25);
 }
 
 .toggle-currency.is-active {
-  outline: 2px solid rgb(var(--color-primary), 0.75);
+  outline: 2px solid rgb(var(--color-secondary), 0.75);
   transform: rotate(360deg) scale(1.2);
 }
 
