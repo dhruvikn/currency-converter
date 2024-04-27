@@ -66,8 +66,8 @@ body {
   background: linear-gradient(
     to bottom,
     rgb(var(--color-dark-2), 0%),
-    rgb(var(--color-primary), 75%),
-    rgb(var(--color-primary), 100%)
+    rgb(var(--color-primary), 30%),
+    rgb(var(--color-primary), 60%)
   );
   -webkit-animation: drop var(--animationDuration) 0s infinite;
   animation: drop var(--animationDuration) 0s infinite;
@@ -121,7 +121,7 @@ body {
   transition-property: opacity;
   background-image: radial-gradient(
     500px at var(--cursor-x) var(--cursor-y),
-    rgba(var(--color-primary), 0.4),
+    rgba(var(--color-secondary), 0.4),
     transparent 40%
   );
   background-size: auto;

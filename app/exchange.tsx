@@ -71,7 +71,7 @@ export default function Exchange() {
 
   return (
     <>
-      <div className="currency-card--container flex-col md:flex-row items-center">
+      <div className="currency-card--container frosted-glass flex-col md:flex-row items-center">
         <CurrencyCard
           fromOrTo="from"
           currency={fromCurrency}

@@ -32,13 +32,16 @@
   width: 100%;
   border-radius: 8px;
   position: relative;
+}
+
+.frosted-glass {
   z-index: 1;
   background-color: rgb(var(--color-dark-1), 0.75);
   box-shadow: 0px 0px 20px rgb(var(--color-dark-1), 0.25);
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  .currency-card--container {
+  .frosted-glass {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     background-color: rgba(var(--color-dark-1), 0.15);
