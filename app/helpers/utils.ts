@@ -1,10 +1,20 @@
-import { CurrencySymbols } from './constants';
+import type { CurrencyExchangeResponse } from './api';
+import type { CurrencySymbols } from './constants';
 
-export const convertToCurrency = (amount: number, currencySymbol: CurrencySymbols) => {
-  const formatter = new Intl.NumberFormat(undefined, {
-    style: 'currency',
-    currency: currencySymbol
-  });
+export const convert = (
+  value: string,
+  fromCurrencySymbol: CurrencySymbols,
+  toCurrencySymbol: CurrencySymbols,
+  exchangeRateData: CurrencyExchangeResponse
+) => {
+  if (!exchangeRateData[toCurrencySymbol]) {
+    return;
+  }
 
-  return formatter.format(amount);
+  const fromCurrencyRate = exchangeRateData[toCurrencySymbol];
+  const toCurrencyRate = exchangeRateData[fromCurrencySymbol];
+
+  const amount = (Number(value) * fromCurrencyRate) / toCurrencyRate;
+
+  return amount.toFixed(2);
 };

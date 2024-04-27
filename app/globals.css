@@ -21,3 +21,12 @@ body {
   background-color: rgb(var(--color-bg));
   color: rgb(var(--color-fg));
 }
+
+* {
+  outline: 0;
+}
+
+*:focus {
+  outline: 2px solid rgb(var(--color-secondary), 0.75);
+  border-radius: 4px;
+}
