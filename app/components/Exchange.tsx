@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-import type { CurrencyExchangeResponse } from '../helpers/api';
+import type { CurrencyExchangeData } from '../helpers/api';
 import type { CurrencyData } from '../helpers/constants';
 
 import { fetchExchangeRate } from '../helpers/api';
@@ -11,7 +11,7 @@ import { CurrencyCard } from './CurrencyCard';
 import { ToggleButton } from './ToggleButton';
 
 export const Exchange = () => {
-  const [exchangeRateData, setExchangeRateData] = useState<CurrencyExchangeResponse>();
+  const [exchangeRateData, setExchangeRateData] = useState<CurrencyExchangeData>();
   const [fromCurrency, setFromCurrency] = useState<CurrencyData>({
     name: 'United States Dollar',
     symbol: 'usd',

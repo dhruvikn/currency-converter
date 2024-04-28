@@ -1,11 +1,11 @@
-import type { CurrencyExchangeResponse } from './api';
+import type { CurrencyExchangeData } from './api';
 import type { CurrencySymbols } from './constants';
 
 export const convert = (
   value: string,
   fromCurrencySymbol: CurrencySymbols,
   toCurrencySymbol: CurrencySymbols,
-  exchangeRateData: CurrencyExchangeResponse
+  exchangeRateData: CurrencyExchangeData
 ) => {
   if (!exchangeRateData[toCurrencySymbol]) {
     return;

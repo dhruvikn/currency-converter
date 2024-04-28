@@ -1,7 +1,9 @@
 import classNames from 'classnames';
-import { CurrencyExchangeResponse } from '../helpers/api';
-import { ALL_CURRENCIES_DATA, CurrencyData } from '../helpers/constants';
 import Link from 'next/link';
+
+import type { CurrencyExchangeData } from '../helpers/api';
+
+import { ALL_CURRENCIES_DATA, CurrencyData } from '../helpers/constants';
 
 export type fromOrTo = 'from' | 'to';
 
@@ -9,7 +11,7 @@ type CurrencyCardProps = {
   fromOrTo: fromOrTo;
   value: string;
   onValueChange?: (value: string) => void;
-  exchangeRateData?: CurrencyExchangeResponse;
+  exchangeRateData?: CurrencyExchangeData;
   toCurrency?: CurrencyData;
   currency: CurrencyData;
   setCurrency: (currency: CurrencyData) => void;

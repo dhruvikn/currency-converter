@@ -1,10 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import type { CurrencySymbols } from './constants';
 
-export type CurrencyExchangeResponse = {
-  [key in CurrencySymbols]: {
-    [key in CurrencySymbols]: number;
-  };
+export type CurrencyExchangeData = {
+  [key in CurrencySymbols]: number;
 } & {
   date: string;
   baseCurrency: CurrencySymbols;
@@ -17,7 +15,7 @@ export type CurrencyExchangeRatesOverAPeriodResponse = {
 
 export const fetchExchangeRate = async (
   fromCurrencySymbol: CurrencySymbols
-): Promise<CurrencyExchangeResponse | Error> => {
+): Promise<CurrencyExchangeData | Error> => {
   if (!fromCurrencySymbol?.length) {
     return new Error('Invalid currency');
   }
@@ -26,10 +24,11 @@ export const fetchExchangeRate = async (
 
   try {
     const response = await axios.get(CURRENCY_EXCHANGE_URL);
-    const data: CurrencyExchangeResponse = response?.data?.[fromCurrencySymbol];
-
-    data.date = response.data.date;
-    data.baseCurrency = fromCurrencySymbol;
+    const data: CurrencyExchangeData = {
+      ...response?.data[fromCurrencySymbol],
+      date: response.data.date,
+      baseCurrency: fromCurrencySymbol
+    };
 
     return data;
   } catch (error) {
@@ -50,7 +49,7 @@ export const fetchExchangeRateForLastNDays = async (
   const CURRENCY_EXCHANGE_URL = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrencySymbol}.json`;
 
   try {
-    const fetchRequests: Promise<AxiosResponse<CurrencyExchangeResponse>>[] = [];
+    const fetchRequests = [];
 
     // Fetch exchange rates for the last 7 days
     for (let i = 0; i < days; i++) {
