@@ -225,11 +225,11 @@
   margin-top: 0.5rem;
 }
 
-.rate-chart-container {
+.rate-chart--container {
   padding: 2rem;
   border-radius: 16px;
 }
 
-.rate-chart-container > div {
+.rate-chart--container .chart > div {
   min-height: 300px;
 }

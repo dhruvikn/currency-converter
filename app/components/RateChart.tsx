@@ -7,6 +7,7 @@ import type { CurrencySymbols } from '../helpers/constants';
 
 import { fetchExchangeRateForLastNDays } from '../helpers/api';
 import { LineChart } from './LineChart';
+import { Spinner } from './Spinner';
 
 type RateChartProps = {
   fromCurrencySymbol?: CurrencySymbols;
@@ -15,7 +16,7 @@ type RateChartProps = {
 };
 
 export const RateChart = (props: RateChartProps) => {
-  const { fromCurrencySymbol, toCurrencySymbol, days } = props;
+  const { fromCurrencySymbol, toCurrencySymbol, days = 7 } = props;
 
   const [exchangeRateNDays, setExchangeRateNDays] =
     useState<CurrencyExchangeRatesOverAPeriodResponse>();
@@ -45,8 +46,14 @@ export const RateChart = (props: RateChartProps) => {
   }, [days, fromCurrencySymbol, toCurrencySymbol]);
 
   return (
-    <div className="frosted-glass mt-8 rate-chart-container">
-      {exchangeRateNDays?.length && <LineChart data={exchangeRateNDays} />}
+    <div className="frosted-glass mt-8 rate-chart--container">
+      <h2>
+        Exchange rate for the last 7 days from {fromCurrencySymbol} to {toCurrencySymbol}
+      </h2>
+
+      <div className="chart">
+        {exchangeRateNDays?.length ? <LineChart data={exchangeRateNDays} /> : <Spinner />}
+      </div>
     </div>
   );
 };
