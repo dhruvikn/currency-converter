@@ -22,6 +22,8 @@ export const RateChart = () => {
     toCurrencySymbol: CurrencySymbols = 'inr',
     days: number = 7
   ) => {
+    setIsLoading(true);
+
     const response = await fetchExchangeRateForLastNDays(
       fromCurrencySymbol,
       toCurrencySymbol,
@@ -40,7 +42,6 @@ export const RateChart = () => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
     getExchangeRateForLastNDays(fromCurrency?.symbol, toCurrency?.symbol);
   }, [fromCurrency?.symbol, toCurrency?.symbol]);
 
