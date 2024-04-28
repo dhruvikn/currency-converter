@@ -42,6 +42,14 @@ body {
   border-radius: 4px;
 }
 
+a {
+  transition: 0.3s ease-out;
+}
+
+a:hover {
+  filter: saturate(150%);
+}
+
 .lines {
   position: absolute;
   top: 0;

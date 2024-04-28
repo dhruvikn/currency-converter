@@ -224,3 +224,8 @@
   color: rgb(var(--color-fg), 0.75);
   margin-top: 0.5rem;
 }
+
+.rate-chart-container {
+  padding: 2rem;
+  border-radius: 16px;
+}

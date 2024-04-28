@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
-import Exchange from './exchange';
 import { useWindowSize, useMouse } from '@uidotdev/usehooks';
 import { generateUniqueRandomValues } from './helpers/utils';
 import { Header } from './components/Header';
+import { RateChart } from './components/RateChart';
+import { Exchange } from './components/Exchange';
 
 type Lines = {
   animationDelay: string;
@@ -78,6 +79,8 @@ export default function Home() {
         <Header />
 
         <Exchange />
+
+        <RateChart />
       </div>
     </main>
   );

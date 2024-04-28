@@ -2,15 +2,15 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-import type { CurrencyExchangeResponse } from './helpers/api';
-import type { CurrencyData } from './helpers/constants';
+import type { CurrencyExchangeResponse } from '../helpers/api';
+import type { CurrencyData } from '../helpers/constants';
 
-import { fetchExchangeRate } from './helpers/api';
-import { convert } from './helpers/utils';
-import { CurrencyCard } from './components/CurrencyCard';
-import { ToggleButton } from './components/ToggleButton';
+import { fetchExchangeRate } from '../helpers/api';
+import { convert } from '../helpers/utils';
+import { CurrencyCard } from './CurrencyCard';
+import { ToggleButton } from './ToggleButton';
 
-export default function Exchange() {
+export const Exchange = () => {
   const [exchangeRateData, setExchangeRateData] = useState<CurrencyExchangeResponse>();
   const [fromCurrency, setFromCurrency] = useState<CurrencyData>({
     name: 'United States Dollar',
@@ -109,4 +109,4 @@ export default function Exchange() {
       </div>
     </>
   );
-}
+};
