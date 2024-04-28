@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { CurrencyExchangeResponse } from '../helpers/api';
 import { ALL_CURRENCIES_DATA, CurrencyData } from '../helpers/constants';
 import Link from 'next/link';
@@ -24,7 +25,12 @@ export const CurrencyCard = (props: CurrencyCardProps) => {
         {fromOrTo.charAt(0).toUpperCase() + fromOrTo.slice(1)}
       </label>
 
-      <div className="currency-card--input--container">
+      <div
+        className={classNames({
+          'currency-card--input--container': true,
+          'to-currency': fromOrTo === 'to'
+        })}
+      >
         <input
           className="currency-card--input"
           type="number"

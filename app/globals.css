@@ -30,7 +30,7 @@ body {
 }
 
 *:focus {
-  outline: 2px solid rgb(var(--color-primary), 0.75);
+  outline: 2px solid rgb(var(--color-secondary), 0.75);
   border-radius: 4px;
 }
 
