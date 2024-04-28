@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A simple & modern currency converter with 7 day historical exchange rate data built using Next.js, TypeScript, and powered by [Currency Exchange Rates API](https://github.com/fawazahmed0/exchange-api).
+
+![Currency converter in action](./public/screenshot.png)
 
 ## Getting Started
 
