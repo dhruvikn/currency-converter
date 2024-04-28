@@ -34,6 +34,12 @@ export const generateUniqueRandomValues = (min: number, max: number, n: number):
 };
 
 export const getValueFromSessionStorage = (key: string) => {
+  const isBrowser: boolean = ((): boolean => typeof window !== 'undefined')();
+
+  if (!isBrowser) {
+    return;
+  }
+
   if (!sessionStorage || !window?.sessionStorage) {
     return;
   }
@@ -48,6 +54,12 @@ export const getValueFromSessionStorage = (key: string) => {
 };
 
 export const setValueInSessionStorage = (key: string, value: unknown) => {
+  const isBrowser: boolean = ((): boolean => typeof window !== 'undefined')();
+
+  if (!isBrowser) {
+    return;
+  }
+
   if (!sessionStorage || !window?.sessionStorage) {
     return;
   }

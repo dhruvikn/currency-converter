@@ -41,15 +41,12 @@ export const RateChart = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getExchangeRateForLastNDays(fromCurrency.symbol, toCurrency.symbol);
-  }, [fromCurrency.symbol, toCurrency.symbol]);
+    getExchangeRateForLastNDays(fromCurrency?.symbol, toCurrency?.symbol);
+  }, [fromCurrency?.symbol, toCurrency?.symbol]);
 
   return (
     <div className="frosted-glass mt-8 rate-chart--container">
-      <h2 className="text-center">
-        Exchange rate for the last 7 days from {fromCurrency.symbol.toUpperCase()} to{' '}
-        {toCurrency.symbol.toUpperCase()}
-      </h2>
+      <h2 className="text-center">Exchange rate for the last 7 days</h2>
 
       <div className="chart">
         {!isLoading && exchangeRateNDays?.length ? (
