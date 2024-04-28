@@ -229,3 +229,7 @@
   padding: 2rem;
   border-radius: 16px;
 }
+
+.rate-chart-container > div {
+  min-height: 300px;
+}

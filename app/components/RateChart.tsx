@@ -6,8 +6,17 @@ import type { CurrencyExchangeRatesOverAPeriodResponse } from '../helpers/api';
 import type { CurrencySymbols } from '../helpers/constants';
 
 import { fetchExchangeRateForLastNDays } from '../helpers/api';
+import { LineChart } from './LineChart';
 
-export const RateChart = () => {
+type RateChartProps = {
+  fromCurrencySymbol?: CurrencySymbols;
+  toCurrencySymbol?: CurrencySymbols;
+  days?: number;
+};
+
+export const RateChart = (props: RateChartProps) => {
+  const { fromCurrencySymbol, toCurrencySymbol, days } = props;
+
   const [exchangeRateNDays, setExchangeRateNDays] =
     useState<CurrencyExchangeRatesOverAPeriodResponse>();
 
@@ -32,14 +41,12 @@ export const RateChart = () => {
   };
 
   useEffect(() => {
-    getExchangeRateForLastNDays();
-  }, []);
+    getExchangeRateForLastNDays(fromCurrencySymbol, toCurrencySymbol, days);
+  }, [days, fromCurrencySymbol, toCurrencySymbol]);
 
   return (
     <div className="frosted-glass mt-8 rate-chart-container">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis voluptates officiis rem, earum
-      consequatur amet! Distinctio culpa, autem eius sapiente architecto eaque ab, vero, tempora ea
-      aut voluptates aperiam dolorem.
+      {exchangeRateNDays?.length && <LineChart data={exchangeRateNDays} />}
     </div>
   );
 };

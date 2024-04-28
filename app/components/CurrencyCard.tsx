@@ -48,6 +48,7 @@ export const CurrencyCard = (props: CurrencyCardProps) => {
           }
           disabled={fromOrTo === 'to'}
           autoFocus={fromOrTo === 'from'}
+          min={0}
         />
 
         <div className="currency-card--dropdown--container">

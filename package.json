@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nivo/line": "^0.85.1",
     "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.6.8",
     "classnames": "^2.5.1",
     "next": "14.2.2",
     "react": "^18",
+    "react-charts": "^3.0.0-beta.57",
     "react-dom": "^18"
   },
   "devDependencies": {

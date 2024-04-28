@@ -51,13 +51,13 @@ a:hover {
 }
 
 .lines {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 100%;
   margin: auto;
-  width: 100vw;
+  width: 100%;
   z-index: -1;
 }
 
@@ -113,7 +113,7 @@ a:hover {
 }
 
 .home-hero-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -123,7 +123,7 @@ a:hover {
 
 .home-hero-bg:before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0px;
   bottom: 0px;
   left: 0px;
