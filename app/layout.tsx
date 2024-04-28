@@ -7,7 +7,7 @@ import './styles.css';
 const inter = Hanken_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Currency Exchange',
+  title: 'Currency Converter',
   description: 'Crafted with love -- by Dhruvik Neharia'
 };
 

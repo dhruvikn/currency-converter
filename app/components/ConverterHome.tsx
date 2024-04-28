@@ -10,7 +10,7 @@ import { convert, setValueInSessionStorage } from '../helpers/utils';
 import { CurrencyCard } from './CurrencyCard';
 import { ToggleButton } from './ToggleButton';
 
-export const Exchange = () => {
+export const ConverterHome = () => {
   const [exchangeRateData, setExchangeRateData] = useState<CurrencyExchangeData>();
   const [fromCurrency, setFromCurrency] = useState<CurrencyData>({
     name: 'United States Dollar',

@@ -6,7 +6,7 @@ import { useWindowSize, useMouse } from '@uidotdev/usehooks';
 import { generateUniqueRandomValues } from './helpers/utils';
 import { Header } from './components/Header';
 import { RateChart } from './components/RateChart';
-import { Exchange } from './components/Exchange';
+import { ConverterHome } from './components/ConverterHome';
 
 type Lines = {
   animationDelay: string;
@@ -78,7 +78,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8">
         <Header />
 
-        <Exchange />
+        <ConverterHome />
 
         <RateChart />
       </div>
