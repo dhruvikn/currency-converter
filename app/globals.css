@@ -12,6 +12,14 @@
   --color-positive: 50, 174, 96; /* #32ae60 */
   --color-negative: 240, 76, 26; /* #f04c1a */
 
+  --mesh-gradient: radial-gradient(at 48% 15%, hsla(169, 94%, 75%, 1) 0px, transparent 50%),
+    radial-gradient(at 58% 64%, hsla(30, 95%, 62%, 1) 0px, transparent 50%),
+    radial-gradient(at 50% 72%, hsla(235, 86%, 59%, 1) 0px, transparent 50%),
+    radial-gradient(at 44% 79%, hsla(234, 89%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 86% 26%, hsla(215, 90%, 48%, 1) 0px, transparent 50%),
+    radial-gradient(at 47% 24%, hsla(334, 66%, 43%, 1) 0px, transparent 50%),
+    radial-gradient(at 75% 60%, hsla(176, 90%, 54%, 1) 0px, transparent 50%);
+
   --font-weight-light: 100;
   --font-weight-normal: 400;
   --font-weight-bold: 800;
@@ -51,7 +59,6 @@ body {
   height: 100%;
   top: 0;
   left: 0px;
-  background: rgb(var(--color-dark-1));
   overflow: hidden;
 }
 
