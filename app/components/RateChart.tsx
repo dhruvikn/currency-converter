@@ -47,7 +47,7 @@ export const RateChart = (props: RateChartProps) => {
 
   return (
     <div className="frosted-glass mt-8 rate-chart--container">
-      <h2>
+      <h2 className="text-center">
         Exchange rate for the last 7 days from {fromCurrencySymbol} to {toCurrencySymbol}
       </h2>
 

@@ -15,7 +15,12 @@ export const LineChart = (props: LineChartProps) => {
   const formattedData = useMemo(() => {
     const newData = data.map(rate => {
       return {
-        x: rate.date,
+        x: `${new Date(rate.date).getDate()}/${new Date(rate.date).getMonth() + 1}/${new Date(
+          rate.date
+        )
+          .getFullYear()
+          .toString()
+          .slice(2)}`,
         y: rate.value.toFixed(2)
       };
     });
@@ -127,7 +132,7 @@ export const LineChart = (props: LineChartProps) => {
               backgroundColor: 'rgba(var(--color-dark-2), 0.5)'
             }}
           >
-            <b>{point.data.yFormatted}</b> - {new Date(point.data.xFormatted).toDateString()}
+            <b>{point.data.yFormatted}</b> - {point.data.xFormatted}
           </div>
         );
       }}

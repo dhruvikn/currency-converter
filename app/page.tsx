@@ -25,7 +25,7 @@ export default function Home() {
       const animationDelays = generateUniqueRandomValues(1, totalLines, totalLines);
 
       newLines.forEach((_, index) => {
-        const left = `${index === 0 ? 200 : index * 200}px`;
+        const left = `${index === 0 ? 200 : (index + 1) * 200}px`;
 
         newLines[index] = {
           animationDelay: `${animationDelays[index]}s`,
