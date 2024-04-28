@@ -4,13 +4,16 @@ import { useMemo } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 
 import type { CurrencyExchangeRatesOverAPeriodResponse } from '../helpers/api';
+import { CurrencyData } from '../helpers/constants';
 
 type LineChartProps = {
   data: CurrencyExchangeRatesOverAPeriodResponse;
+  fromCurrency: CurrencyData;
+  toCurrency: CurrencyData;
 };
 
 export const LineChart = (props: LineChartProps) => {
-  const { data } = props;
+  const { data, fromCurrency, toCurrency } = props;
 
   const formattedData = useMemo(() => {
     const newData = data.map(rate => {
@@ -132,7 +135,12 @@ export const LineChart = (props: LineChartProps) => {
               backgroundColor: 'rgba(var(--color-dark-2), 0.5)'
             }}
           >
-            <b>{point.data.yFormatted}</b> - {point.data.xFormatted}
+            {fromCurrency.latinSymbol}1 ={' '}
+            <b>
+              {toCurrency.latinSymbol}
+              {point.data.yFormatted}
+            </b>{' '}
+            - {point.data.xFormatted}
           </div>
         );
       }}

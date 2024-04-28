@@ -6,7 +6,7 @@ import type { CurrencyExchangeData } from '../helpers/api';
 import type { CurrencyData } from '../helpers/constants';
 
 import { fetchExchangeRate } from '../helpers/api';
-import { convert } from '../helpers/utils';
+import { convert, setValueInSessionStorage } from '../helpers/utils';
 import { CurrencyCard } from './CurrencyCard';
 import { ToggleButton } from './ToggleButton';
 
@@ -68,6 +68,11 @@ export const Exchange = () => {
       }
     }
   }, [exchangeRateData, fromCurrency.symbol, fromCurrencyValue, toCurrency.symbol]);
+
+  useEffect(() => {
+    setValueInSessionStorage('fromCurrency', fromCurrency);
+    setValueInSessionStorage('toCurrency', toCurrency);
+  }, [fromCurrency, toCurrency]);
 
   return (
     <>

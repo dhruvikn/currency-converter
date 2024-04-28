@@ -32,3 +32,17 @@ export const generateUniqueRandomValues = (min: number, max: number, n: number):
 
   return Array.from(result);
 };
+
+export const getValueFromSessionStorage = (key: string) => {
+  const value = sessionStorage.getItem(key);
+
+  if (value) {
+    return JSON.parse(value);
+  }
+
+  return null;
+};
+
+export const setValueInSessionStorage = (key: string, value: unknown) => {
+  sessionStorage.setItem(key, JSON.stringify(value));
+};
